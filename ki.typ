@@ -4,7 +4,6 @@
   if title != auto {
     self.store.title = title
   }
-  // set page
   let header(self) = {
     set align(top)
     show: components.cell.with(fill: self.colors.primary, inset: 1em, width: 100%)
@@ -18,7 +17,7 @@
     } else {
       utils.display-current-heading(level: 2)
     }
-    place(right + horizon, image("ki-logo.svg", height: 350%))
+    place(right + horizon, image("ki-logo-neg.svg", height: 2cm))
   }
   let footer(self) = {
     set align(bottom)
@@ -41,6 +40,7 @@
 #let title-slide(..args) = touying-slide-wrapper(self => {
   let info = self.info + args.named()
   let body = {
+    place(bottom + right, image("ki-logo-pos.svg", height: 2cm), dx: 3em, dy: 3.5em)
     set align(center + horizon)
     block(text(size: 2em, weight: "bold", info.title))
     block(text(info.subtitle))
@@ -58,6 +58,7 @@
 
 #let new-section-slide(self: none, body) = touying-slide-wrapper(self => {
   let main-body = {
+    place(bottom + right, image("ki-logo-pos.svg", height: 2cm), dx: 3em, dy: 3.5em)
     set align(center + horizon)
     set text(size: 2em, fill: self.colors.neutral-darkest, weight: "bold", style: "italic")
     utils.display-current-heading(level: 1)
@@ -66,7 +67,7 @@
 })
 
 #let focus-slide(body) = touying-slide-wrapper(self => {
-  self= utils.merge-dicts(
+  self = utils.merge-dicts(
     self,
     config-page(
       fill: self.colors.primary,
