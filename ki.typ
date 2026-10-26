@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.8.0": *
 #import "extras.typ": *
 
 #let slide(title: auto, ..args) = touying-slide-wrapper(self => {
@@ -70,11 +70,17 @@
 #let new-section-slide(self: none, body) = touying-slide-wrapper(self => {
   let main-body = {
     place(bottom + right, image("ki-logo-pos.svg", height: 2cm), dx: 3em, dy: 3.5em)
-    set align(self.store.new-section-adjust + horizon)
     text(size: font-size.xl, weight: "bold", utils.display-current-heading(level: 1))
     block(scale_text(90pt, max_font_size: 24pt, body))
   }
-  touying-slide(self: self, main-body)
+  touying-slide(
+    self: self,
+    setting: body => {
+      set align(self.store.new-section-adjust + horizon)
+      body
+    },
+    main-body,
+  )
 })
 
 #let focus-slide(size: 2em, body) = touying-slide-wrapper(self => {
@@ -85,8 +91,14 @@
       margin: 2em,
     ),
   )
-  set text(fill: self.colors.neutral-lightest, size: size)
-  touying-slide(self: self, align(horizon + left, body))
+  touying-slide(
+    self: self,
+    setting: body => {
+      set text(fill: self.colors.neutral-lightest, size: size)
+      align(horizon + left, body)
+    },
+    body,
+  )
 })
 
 #let image-slide(body, background: none) = touying-slide-wrapper(self => {
@@ -97,9 +109,15 @@
       margin: 2em,
     ),
   )
-  set text(fill: self.colors.neutral-lightest, size: 2em)
-  set image(width: 100%,height: auto)
-  touying-slide(self: self, align(horizon + center, body))
+  touying-slide(
+    self: self,
+    setting: body => {
+      set text(fill: self.colors.neutral-lightest, size: 2em)
+      set image(width: 100%, height: auto)
+      align(horizon + center, body)
+    },
+    body,
+  )
 })
 
 #let ki-theme(
@@ -111,6 +129,9 @@
 ) = {
   set text(font: "DM Sans", size: 20pt)
   set list(marker: ([•], [--]))
+  set footnote.entry(separator: none, indent: 0em)
+  show footnote.entry: set align(right)
+  show footnote.entry: set text(size: font-size.smaller)
 
   show: touying-slides.with(
     config-page(
@@ -120,6 +141,7 @@
     config-common(
       slide-fn: slide,
       new-section-slide-fn: new-section-slide,
+      receive-body-for-new-section-slide-fn: true,
     ),
     config-colors(
       primary: ki-colors.plum_dark,

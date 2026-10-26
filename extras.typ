@@ -31,7 +31,7 @@
 
 // scale font size dynamically to fit a pre-specified height
 #let scale_text(
-  max_height, 
+  max_height,
   max_font_size: font-size.large,
   min_font_size: font-size.smaller,
   body
@@ -53,10 +53,10 @@
     }
 
     text(font-size, body)
-  }) 
+  })
 }
 
-// scale longer titles dynamically 
+// scale longer titles dynamically
 // keeps title at least a third larger than subtitle (18pt)
 #let scale_title(body) = scale_text(70pt, min_font_size: 24pt, body)
 
@@ -70,13 +70,5 @@
       v(14pt)
     }
     #pad(14pt)[#body]
-  ]
-}
-
-// adds a footnote in the bottom right of the slide
-#let footnote(body) = {
-  place(bottom + right, dx: 3em, dy: 1.75em)[
-    #set text(0.5em)
-    #body
   ]
 }
