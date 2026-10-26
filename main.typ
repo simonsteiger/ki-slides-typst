@@ -19,9 +19,26 @@ And a subtitle to got with it
 
 == First slide
 
-A slide with a title and an *important* information.#super("1")
+A slide with a title and an *important* information.#footnote[not _too_ important in the grand scheme of things]
 
-#footnote[#super("1") not _too_ important in the grand scheme of things]
+#pause
+
+A second claim.#footnote[Jane Doe, 2012]
+
+== Two columns
+
+#grid(
+  columns: (1fr, 1fr),
+  column-gutter: 1em,
+  custom_cell(fill: ki-colors.orange)[
+    === Left
+    Content in the left card.
+  ],
+  custom_cell(fill: ki-colors.green)[
+    === Right
+    Content in the right card.
+  ],
+)
 
 #focus-slide[
   Time to focus!

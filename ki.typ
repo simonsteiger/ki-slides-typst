@@ -129,6 +129,9 @@
 ) = {
   set text(font: "DM Sans", size: 20pt)
   set list(marker: ([•], [--]))
+  set footnote.entry(separator: none, indent: 0em)
+  show footnote.entry: set align(right)
+  show footnote.entry: set text(size: font-size.smaller)
 
   show: touying-slides.with(
     config-page(
