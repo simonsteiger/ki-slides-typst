@@ -15,9 +15,13 @@
 
 = First section
 
+And a subtitle to got with it
+
 == First slide
 
-A slide with a title and an *important* information.
+A slide with a title and an *important* information.#super("1")
+
+#footnote[#super("1") not _too_ important in the grand scheme of things]
 
 #focus-slide[
   Time to focus!

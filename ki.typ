@@ -52,7 +52,7 @@
   let body = {
     place(bottom + right, image("ki-logo-pos.svg", height: 2cm), dx: 3em, dy: 3.5em)
     set align(center + horizon)
-    block(text(size: font-size.xl, weight: "bold", info.title))
+    block(scale_title(text(weight: "bold", info.title)))
     v(.75em)
     block(text(size: font-size.body, info.subtitle))
     set align(bottom + center)
@@ -71,7 +71,7 @@
   let main-body = {
     place(bottom + right, image("ki-logo-pos.svg", height: 2cm), dx: 3em, dy: 3.5em)
     text(size: font-size.xl, weight: "bold", utils.display-current-heading(level: 1))
-    block(body)
+    block(scale_text(90pt, max_font_size: 24pt, body))
   }
   touying-slide(
     self: self,
