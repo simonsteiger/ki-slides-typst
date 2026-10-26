@@ -61,7 +61,7 @@
 #let scale_title(body) = scale_text(70pt, min_font_size: 24pt, body)
 
 // styled drop-in replacement for grid.cell
-#let custom_cell(fill: luma(210), ..args, body) = {
+#let grid-card(fill: luma(210), ..args, body) = {
   grid.cell(fill: fill.lighten(40%), stroke: 1pt + fill, ..args)[
     #set text(font-size.small)
     #show heading: it => {
