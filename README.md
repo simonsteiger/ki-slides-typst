@@ -62,7 +62,7 @@ If you're interested in what this template looks like, check out `main.pdf` (and
 
 If your system has DM Sans fonts installed, you can skip this section.
 
-Otherwise, either install the DM Sans font files in `fonts/`. 
+Otherwise, either install the DM Sans font files in `fonts/` or download them for free from [Google Fonts](https://fonts.google.com/specimen/DM+Sans). 
 How this works depends on your operating system; if you don't know how to do this, there should be many guides online and LLMs can almost certainly guide you through this, too.
 
 ## Issues and PRs
