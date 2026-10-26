@@ -25,20 +25,30 @@ A slide with a title and an *important* information.#footnote[not _too_ importan
 
 A second claim.#footnote[Jane Doe, 2012]
 
-== Two columns
+== Cards with headers
 
 #grid(
   columns: (1fr, 1fr),
   column-gutter: 1em,
-  custom_cell(fill: ki-colors.orange)[
+  grid-card(fill: ki-colors.orange)[
     === Left
     Content in the left card.
   ],
-  custom_cell(fill: ki-colors.green)[
+  grid-card(fill: ki-colors.green)[
     === Right
     Content in the right card.
   ],
 )
+
+#image-slide(background: image("ki-logo-pos.svg", width: 50%))[
+  #place(bottom + left, dx: -40pt, dy: 40pt)[
+      #rect(fill: luma(240), inset: 0.3em)[
+        #set text(0.3em)
+        #set align(right)
+        A note about the picture
+      ]
+    ]
+]
 
 #focus-slide[
   Time to focus!

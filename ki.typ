@@ -112,7 +112,7 @@
   touying-slide(
     self: self,
     setting: body => {
-      set text(fill: self.colors.neutral-lightest, size: 2em)
+      set text(fill: self.colors.neutral-darkest, size: 2em)
       set image(width: 100%, height: auto)
       align(horizon + center, body)
     },
